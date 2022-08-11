@@ -18,6 +18,7 @@ module.exports = {
       { text: "前端", link: "/front/" },
       { text: "后端", link: "/back/" },
       { text: "Blog", link: "/blog/" },
+      { text: "杂记", link: "/record/" },
       // { text: '后端', link: '/blog/backend/' },
       // 对应/guide/guide.md
       // { text: '导航', link: '/guide/guide' },
