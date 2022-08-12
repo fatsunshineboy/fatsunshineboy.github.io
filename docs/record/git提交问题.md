@@ -1,3 +1,4 @@
+[[toc]]
 ## git提交出现的问题
 创建一个仓库，添加README.md和license  
 GitHub会默认把main作为默认的branch  
