@@ -27,7 +27,26 @@ module.exports = {
     // 禁用导航栏
     // navbar: false,
     // 设置自动生成侧边栏
-    sidebar: "auto",
+    sidebar: {
+      "/back/chinese/": [
+        "", //该目录下的README.md文件
+        "a", //该目录下的a.md文件
+        "b", //该目录下的a.md文件
+      ],
+      "/record/": [
+        ["", "杂记"],
+        {
+          title: "git",
+          collapsable:true,
+          children: [
+            "git提交问题.md",
+            ["git学习经验.md", "git学习经验"],
+          ],
+        },
+        "Linux命令行.md",
+      ],
+    },
+    // sidebar: "auto",
     //   sidebar: {
     //     //对象的默认路径
     //     '/blog/fontend/': [
@@ -37,22 +56,25 @@ module.exports = {
     //     ]
     //   },
     // sidebar: [
-    //     {
-    //       title: '分组1 前端',
-    //       collapsable: false,
-    //       children: [
-    //         '/blog/fontend/myhtml',
-    //         ['/blog/fontend/myJavascript', 'js自定义的标题']
-    //       ],
-    //     },
-    //     {
-    //       title: '分组2 后端',
-    //       collapsable: true,
-    //       children: [
-    //         '/blog/backend/myjava',
-    //       ]
-    //     }
-    //   ],
+    //   {
+    //     title: "前端",
+    //     collapsable: false,
+    //     children: [
+    //       "/front/myhtml",
+    //       ["/blog/fontend/myJavascript", "js自定义的标题"],
+    //     ],
+    //   },
+    //   {
+    //     title: "后端",
+    //     collapsable: true,
+    //     children: ["/back/README.md"],
+    //   },
+    //   {
+    //     title: "杂记",
+    //     collapsable: true,
+    //     children: ["/blog/record/README.md","/blog/record/git提交问题.md"],
+    //   },
+    // ],
     //   sidebarDepth: 2,
     // search: false, // 设置是否使用导航栏上的搜索框
     // searchMaxSuggestions: 10  // 搜索框显示的搜索结果数量
