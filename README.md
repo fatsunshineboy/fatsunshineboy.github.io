@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-# vuepress
-=======
-# fatsunshineboy.github.io
-a private blog
->>>>>>> origin/main
+### sunBlog
+### email:sunshineboy085@gmail.com
