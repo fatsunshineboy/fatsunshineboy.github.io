@@ -37,14 +37,14 @@ module.exports = {
         ["", "杂记"],
         {
           title: "git",
-          collapsable:true,
+          collapsable: true,
           children: [
             ["git学习经验.md", "git学习经验"],
             ["git疑难杂点.md", "git疑难杂点"],
             ["git可能遇到的问题.md", "git错误问题"],
           ],
         },
-        "Linux命令行.md",
+        ["Linux命令行.md", "Linux命令学习"],
       ],
     },
     // sidebar: "auto",
