@@ -8,6 +8,11 @@ module.exports = {
     ["link", { rel: "icon", href: "/sun.png" }], // 需要被注入到当前页面的 HTML <head> 中的标签
   ],
   // host port在本地运行就不配置了
+  permalink: "/:year/:month/:day/:slug", //永久链接
+  // markdown: {
+  //   lineNumbers: true//代码块的行号
+  // },
+  plugins: ['@vuepress/back-to-top','@vuepress/nprogress'],
   themeConfig: {
     logo: "/sun.png",
     nav: [
@@ -28,13 +33,14 @@ module.exports = {
     // navbar: false,
     // 设置自动生成侧边栏
     sidebar: {
-      "/back/chinese/": [
-        "", //该目录下的README.md文件
-        "a", //该目录下的a.md文件
-        "b", //该目录下的a.md文件
-      ],
       "/record/": [
-        ["", "杂记"],
+        {
+          title: "杂记",
+          sidebarDepth: 1, 
+          collapsable: false,
+          path:""
+        },
+        
         {
           title: "git",
           collapsable: true,
@@ -45,6 +51,7 @@ module.exports = {
           ],
         },
         ["Linux命令行.md", "Linux命令学习"],
+        ["vuepress学习经验.md", "vuepress学习"],
       ],
     },
     // sidebar: "auto",
