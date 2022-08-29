@@ -8,11 +8,11 @@ module.exports = {
     ["link", { rel: "icon", href: "/sun.png" }], // 需要被注入到当前页面的 HTML <head> 中的标签
   ],
   // host port在本地运行就不配置了
-  permalink: "/:year/:month/:day/:slug", //永久链接
+  // permalink: "/:year/:month/:day/:slug", //永久链接
   // markdown: {
   //   lineNumbers: true//代码块的行号
   // },
-  plugins: ['@vuepress/back-to-top','@vuepress/nprogress'],
+  // plugins: ['@vuepress/back-to-top','@vuepress/nprogress'],
   themeConfig: {
     logo: "/sun.png",
     nav: [
@@ -36,11 +36,11 @@ module.exports = {
       "/record/": [
         {
           title: "杂记",
-          sidebarDepth: 1, 
+          sidebarDepth: 1,
           collapsable: false,
-          path:""
+          path: "",
         },
-        
+
         {
           title: "git",
           collapsable: true,
