@@ -8,7 +8,7 @@
     <link rel="icon" href="/sun.png">
     <meta name="description" content="fatsunshineboy">
     
-    <link rel="preload" href="/assets/css/0.styles.9825735b.css" as="style"><link rel="preload" href="/assets/js/app.5cf871ef.js" as="script"><link rel="preload" href="/assets/js/2.2defd20b.js" as="script"><link rel="preload" href="/assets/js/17.9d64d7df.js" as="script"><link rel="prefetch" href="/assets/js/10.fdfee46e.js"><link rel="prefetch" href="/assets/js/11.971219a8.js"><link rel="prefetch" href="/assets/js/12.ad8d5d93.js"><link rel="prefetch" href="/assets/js/13.790e7f6b.js"><link rel="prefetch" href="/assets/js/14.28381ca7.js"><link rel="prefetch" href="/assets/js/15.1d3eeb09.js"><link rel="prefetch" href="/assets/js/16.6816d7bf.js"><link rel="prefetch" href="/assets/js/18.a7b48ca8.js"><link rel="prefetch" href="/assets/js/19.fd60abe1.js"><link rel="prefetch" href="/assets/js/3.9c2455d0.js"><link rel="prefetch" href="/assets/js/4.26f73e91.js"><link rel="prefetch" href="/assets/js/5.5dcec586.js"><link rel="prefetch" href="/assets/js/6.f2a96706.js"><link rel="prefetch" href="/assets/js/7.ba72b951.js"><link rel="prefetch" href="/assets/js/8.b0b7a675.js"><link rel="prefetch" href="/assets/js/9.0c8fc18f.js">
+    <link rel="preload" href="/assets/css/0.styles.9825735b.css" as="style"><link rel="preload" href="/assets/js/app.ae9157ea.js" as="script"><link rel="preload" href="/assets/js/2.2defd20b.js" as="script"><link rel="preload" href="/assets/js/17.a5590d90.js" as="script"><link rel="prefetch" href="/assets/js/10.fdfee46e.js"><link rel="prefetch" href="/assets/js/11.971219a8.js"><link rel="prefetch" href="/assets/js/12.ad8d5d93.js"><link rel="prefetch" href="/assets/js/13.790e7f6b.js"><link rel="prefetch" href="/assets/js/14.28381ca7.js"><link rel="prefetch" href="/assets/js/15.1d3eeb09.js"><link rel="prefetch" href="/assets/js/16.6816d7bf.js"><link rel="prefetch" href="/assets/js/18.a7b48ca8.js"><link rel="prefetch" href="/assets/js/19.fd60abe1.js"><link rel="prefetch" href="/assets/js/3.9c2455d0.js"><link rel="prefetch" href="/assets/js/4.26f73e91.js"><link rel="prefetch" href="/assets/js/5.5dcec586.js"><link rel="prefetch" href="/assets/js/6.f2a96706.js"><link rel="prefetch" href="/assets/js/7.ba72b951.js"><link rel="prefetch" href="/assets/js/8.b0b7a675.js"><link rel="prefetch" href="/assets/js/9.0c8fc18f.js">
     <link rel="stylesheet" href="/assets/css/0.styles.9825735b.css">
   </head>
   <body>
@@ -56,7 +56,7 @@ $ <span class="token function">git</span> reset --hard HEAD^
 $ <span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>commit_id<span class="token operator">&gt;</span>
 <span class="token comment">#记录每一次命令(防止回退错误)</span>
 $ <span class="token function">git</span> reflog
-</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>注意^与~之间的区别，当存在多个分支时，^可以用来选择分支，HEAD~i永远只选择第i级父节点的第一个分支，HEAD~i^2选择第i级父节点的第二个分支，以此类推；HEAD^=HEAD^1=HEAD~1；如果没有分支，只有一条主线，则HEAD^^^=HEAD^1^1^1=HEAD~3，如果该级节点有第二个分支，则表示为：HEAD^^^2 = HEAD~2^2</p> <div class="language- extra-class"><pre class="language-text"><code>G   H   I   J
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>注意^与~之间的区别，当存在多个分支时，^可以用来选择分支，HEAD~i永远只选择第i级父节点的第一个分支，以此类推；HEAD^=HEAD^1=HEAD~1；如果没有分支，只有一条主线，则HEAD^^^=HEAD^1^1^1=HEAD~3，如果该级节点有第二个分支，则表示为：HEAD^^^2 = HEAD~2^2</p> <div class="language- extra-class"><pre class="language-text"><code>G   H   I   J
  \ /     \ /
   D   E   F
    \  |  / \
@@ -155,11 +155,11 @@ $ <span class="token function">git</span> stash drop <span class="token operator
 $ <span class="token function">git</span> stash <span class="token function">clear</span>
 <span class="token comment">#工作藏在某一新分支上</span>
 $ <span class="token function">git</span> stash branch <span class="token operator">&lt;</span>Branch Name<span class="token operator">&gt;</span>
-</code></pre></div><h3 id="git命令图解"><a href="#git命令图解" class="header-anchor">#</a> Git命令图解</h3> <p><img src="/imgs/record/git_problem/git%E6%B5%81%E7%A8%8B.png" alt="git命令"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">8/29/2022, 9:42:38 AM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/record/git疑难杂点.html">
+</code></pre></div><h3 id="git命令图解"><a href="#git命令图解" class="header-anchor">#</a> Git命令图解</h3> <p><img src="/imgs/record/git_problem/git%E6%B5%81%E7%A8%8B.png" alt="git命令"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">8/31/2022, 3:27:50 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/record/git疑难杂点.html">
         git疑难杂点
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.5cf871ef.js" defer></script><script src="/assets/js/2.2defd20b.js" defer></script><script src="/assets/js/17.9d64d7df.js" defer></script>
+    <script src="/assets/js/app.ae9157ea.js" defer></script><script src="/assets/js/2.2defd20b.js" defer></script><script src="/assets/js/17.a5590d90.js" defer></script>
   </body>
 </html>
