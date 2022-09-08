@@ -52,7 +52,7 @@ module.exports = {
             ["./front_learn/JavScript_Attention.md", "JavaScript注意事项"],
             ["./front_learn/TypeScript.md", "TypeScript学习经验"],
             ["./front_learn/Vue_Attention.md", "Vue注意事项"],
-            ["./front_learn/Vuepress_Learn.md", "Vuepress学习经验"],
+            ["./front_learn/Vuepress_Learn_exprice.md", "Vuepress学习经验"],
           ],
         },
         {
