@@ -7,6 +7,16 @@ module.exports = {
   head: [
     ["link", { rel: "icon", href: "/sun.png" }], // 需要被注入到当前页面的 HTML <head> 中的标签
   ],
+  // theme: "@vuepress/theme-blog",
+  // themeConfig: {
+  //   dateFormat: "YYYY-MM-DD",
+  //   nav: [
+  //     { text: "Home", link: "/" },
+  //     { text: "前端", link: "/front/" },
+  //     { text: "后端", link: "/back/" },
+  //     { text: "Blog", link: "/blog/" },
+  //     { text: "杂记", link: "/record/" },
+  //   ],
   // host port在本地运行就不配置了
   // permalink: "/:year/:month/:day/:slug", //永久链接
   // markdown: {
