@@ -11,7 +11,7 @@ typeof str	//求数据类型
 
 :::tip
 1. 对象有属性__proto__，指向该对象的构造函数的原型对象。
-2. 方法除了有属性__proto__，还有属性prototype，prototype指向该方法的原型对象。
+2. 方法除了有属性__proto__，还有属性prototype，prototype指向该方法的原型对象。</br>
 :::
 
 ### 数据转化
@@ -269,7 +269,7 @@ document.addEventListener('selectstart'，function(e){
 
 :::tip
 `keyup` 和 `keydown` 不区分键盘大小写</br>
-`keypress` 区分键盘大小写
+`keypress` 区分键盘大小写</br>
 :::
 
 ### change事件
@@ -406,7 +406,7 @@ document.write是直接将内容写入页面的内容流，但是文档流执行
 <a href='javascript:void(0);'></a>
 ```
 
-### addEventListener 件监听方式
+### addEventListener
 
 `eventTarget.addEventListener(type，listener[,usecapture])`	//调用函数不用加小括号
 `eventTarget.addEventListener()`方法将指定的监听器注册到eventTarget(目标对象)上，当该对象触发指定的事件时，就会执行事件处理函数。

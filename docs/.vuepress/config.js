@@ -7,22 +7,12 @@ module.exports = {
   head: [
     ["link", { rel: "icon", href: "/sun.png" }], // 需要被注入到当前页面的 HTML <head> 中的标签
   ],
-  // theme: "@vuepress/theme-blog",
-  // themeConfig: {
-  //   dateFormat: "YYYY-MM-DD",
-  //   nav: [
-  //     { text: "Home", link: "/" },
-  //     { text: "前端", link: "/front/" },
-  //     { text: "后端", link: "/back/" },
-  //     { text: "Blog", link: "/blog/" },
-  //     { text: "杂记", link: "/record/" },
-  //   ],
   // host port在本地运行就不配置了
   // permalink: "/:year/:month/:day/:slug", //永久链接
   // markdown: {
   //   lineNumbers: true//代码块的行号
   // },
-  // plugins: ['@vuepress/back-to-top','@vuepress/nprogress'],
+  plugins: [[require("./plugins/sideAnchor")], ["@vuepress/medium-zoom"]],
   // plugins: [[require("./demoContainer")]],
   themeConfig: {
     logo: "/sun.png",
@@ -31,7 +21,7 @@ module.exports = {
       { text: "Home", link: "/" },
       // 对应blog/fontend/README.md
       //   { text: "blog", link: "/blog/" },
-      { text: "前端", link: "/front/" },
+      { text: "前端", link: "/front/front_learn/JavaScript_Learn.md" },
       { text: "后端", link: "/back/" },
       { text: "Blog", link: "/blog/" },
       { text: "杂记", link: "/record/" },
@@ -48,6 +38,7 @@ module.exports = {
         {
           title: "前端学习",
           children: [
+            ["./front_learn/Css_learn.md", "CSS学习笔记"],
             ["./front_learn/JavaScript_Learn.md", "JavaScript学习笔记"],
             ["./front_learn/JavScript_Attention.md", "JavaScript注意事项"],
             ["./front_learn/TypeScript.md", "TypeScript学习经验"],
@@ -75,37 +66,17 @@ module.exports = {
       ],
     },
     // sidebar: "auto",
-    //   sidebar: {
-    //     //对象的默认路径
-    //     '/blog/fontend/': [
-    //       '', //侧边栏第一个页面是：/blog/fontend/README.md,、链接文字自动获取(页面的第一个header)，即h1(前端技术)
-    //       'myhtml',  //侧边栏第二个页面是：/blog/fontend/myhtml.md,链接文字自动获取(页面的第一个header)，即h2(html 二级标题)
-    //       ['myJavascript', 'js自定义的标题'] //侧边栏第三个页面是：/blog/fontend/myJavascript.md ,指定链接的文字，使用一个格式为 [link, text] 的数组。
-    //     ]
-    //   },
-    // sidebar: [
-    //   {
-    //     title: "前端",
-    //     collapsable: false,
-    //     children: [
-    //       "/front/myhtml",
-    //       ["/blog/fontend/myJavascript", "js自定义的标题"],
-    //     ],
-    //   },
-    //   {
-    //     title: "后端",
-    //     collapsable: true,
-    //     children: ["/back/README.md"],
-    //   },
-    //   {
-    //     title: "杂记",
-    //     collapsable: true,
-    //     children: ["/blog/record/README.md","/blog/record/git提交问题.md"],
-    //   },
-    // ],
-    //   sidebarDepth: 2,
+    sidebarDepth: 0,
     // search: false, // 设置是否使用导航栏上的搜索框
     // searchMaxSuggestions: 10  // 搜索框显示的搜索结果数量
     lastUpdated: "上次更新", // string | boolean
+    // 假定 GitHub。也可以是一个完整的 GitLab 网址
+    repo: "fatsunshineboy/fatsunshineboy.github.io",
+    // 如果你的文档不在仓库的根部
+    docsDir: "docs",
+    // 可选，默认为 master
+    docsBranch: "main",
+    // 默认为 true，设置为 false 来禁用
+    editLinks: true,
   },
 };

@@ -4,10 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/plugin-blog": "^1.9.4",
     "@vuepress/plugin-medium-zoom": "^1.9.7",
-    "@vuepress/theme-blog": "^2.3.3",
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
