@@ -12,5 +12,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "eject": "vuepress eject"
+  },
+  "dependencies": {
+    "markdown-it-container": "^3.0.0"
   }
 }

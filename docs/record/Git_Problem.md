@@ -90,3 +90,56 @@ git remote add origin git@github.com:yourName/repositoryname.git
 # 第二种方式。通过配置设置 https 免密码输入
 git config --global credential.helper osxkeychain
 ```
+
+## warning: LF will be replaced by CRLF
+> CR（Carriage Return Line Feed）为回车符，LF（Line Feed）为换行符。Windows 结束一行用 CRLF，Mac 和 Linux 用 LF。</br>
+> core.autocrlf 用于在提交和检出时自动转换换行符,可设置参数如下：</br>
+> false 表示取消自动转换功能。适合纯 Windows</br>
+> true 表示提交代码时把 CRLF 转换成 LF，签出时 LF 转换成 CRLF，适合多平台协作</br>
+> input 表示提交时把 CRLF 转换成 LF，检出时不转换，适合纯 Linux 或 Mac
+:::tip
+可以使用 dos2unix 转换工具来完成，Windows 上 Git bash 客户端自带了该工具，手动将文件的换行符转化为 LF。
+:::
+:::warning
+在多人协作时，没法确保所有人的 core.autocrlf 都是同样的配置。因此 core.autocrlf 这个配置需要在了解清楚后再进行使用。比较推荐的做法是使用 .gitattributesv 指定项目中各类文件适用的换行符。
+:::
+```bash
+总结：
+# Windows 平台设置
+git config --global core.autocrlf true
+# linux和MAc 平台设置
+git config --global core.autocrlf input
+# 多人合作开发设置 .gitattributesv 指定项目中各类文件适用的换行符
+```
+### .gitattributes 配置
+1. 新仓库
+首先，在仓库的根目录下创建名为 .gitattributes 的文件。
+
+下面，是一份 .gitattributes 文件的样例内容。
+```
+*.js    eol=lf
+*.jsx   eol=lf
+*.json  eol=lf
+```
+把该文件提交并推送到服务器上。
+```bash
+git add .
+git commit -m "Added .gitattributes to repo"
+git push
+```
+现在，任何人从仓库获取代码后，创建以及修改文件时，git 都会自动地设置好正确的文件结尾。
+
+2. 增加到已有的 Git 仓库
+正如上面提到的，在仓库的根目录下创建名为 .gitattributes 的文件。一旦文件推送到 git 服务器后，请确保你的本地 仓库是干净的、无需提交的。使用命令 `git status` 可以检查是否你的仓库是干净的。
+:::warning
+注意：如果你还有未提及或推送的文件，请确保这些动作已经被执行过了，或者在执行下面的命令前 `stash` 过。
+:::
+```bash
+# 重置 GitAttributes
+git rm --cached -r
+git reset --hard
+```
+上面的命令就会根据文件 .gitattributes 中的定义，更新文件的结尾行。
+任何变更都会自动使用指定文件的文件结尾行格式。
+下一步，可以通知团队成员或者协作者去执行 Git 属性重置的命令。</br>
+[文章来源](https://zhuanlan.zhihu.com/p/108266134)

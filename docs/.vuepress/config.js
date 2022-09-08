@@ -3,7 +3,7 @@ module.exports = {
   // base:配置部署站点的基础路径
   //   base: "./",
   title: "sunBlog", // 网站的标题
-  description: "fatsunshineboy", // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中。
+  description: "fatsunshineboy的个人博客", // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中。
   head: [
     ["link", { rel: "icon", href: "/sun.png" }], // 需要被注入到当前页面的 HTML <head> 中的标签
   ],
@@ -13,6 +13,7 @@ module.exports = {
   //   lineNumbers: true//代码块的行号
   // },
   // plugins: ['@vuepress/back-to-top','@vuepress/nprogress'],
+  // plugins: [[require("./demoContainer")]],
   themeConfig: {
     logo: "/sun.png",
     nav: [
@@ -34,24 +35,18 @@ module.exports = {
     // 设置自动生成侧边栏
     sidebar: {
       "/record/": [
-        {
-          title: "杂记",
-          sidebarDepth: 1,
-          collapsable: false,
-          path: "",
-        },
-
+        "",
         {
           title: "git",
-          collapsable: true,
+          // collapsable: true,
           children: [
-            ["git学习经验.md", "git学习经验"],
-            ["git疑难杂点.md", "git疑难杂点"],
-            ["git可能遇到的问题.md", "git错误问题"],
+            ["Git_Learn_Experience.md", "git学习经验"],
+            ["Git_Difficult.md", "git疑难杂点"],
+            ["Git_Problem.md", "git错误问题"],
           ],
         },
-        ["Linux命令行.md", "Linux命令学习"],
-        ["vuepress学习经验.md", "vuepress学习"],
+        ["Linux_Learn.md", "Linux命令学习"],
+        ["Vuepress_Learn.md.md", "vuepress学习"],
       ],
     },
     // sidebar: "auto",
