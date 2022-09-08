@@ -1,5 +1,5 @@
 ---
-sidebar: auto
+# sidebar: auto
 time: 2022-9-3
 ---
 

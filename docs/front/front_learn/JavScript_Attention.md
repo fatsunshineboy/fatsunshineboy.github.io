@@ -1,5 +1,7 @@
 ---
-sidebar: auto
+# sidebar: auto
+title: JavaScript注意事项
+time: 2022-9-8
 ---
 
 ## 构造函数

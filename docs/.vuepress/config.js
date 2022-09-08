@@ -34,6 +34,22 @@ module.exports = {
     // navbar: false,
     // 设置自动生成侧边栏
     sidebar: {
+      "/front/": [
+        {
+          title: "前端学习",
+          children: [
+            ["./front_learn/JavaScript_Learn.md", "JavaScript学习笔记"],
+            ["./front_learn/JavScript_Attention.md", "JavaScript注意事项"],
+            ["./front_learn/TypeScript.md", "TypeScript学习经验"],
+            ["./front_learn/Vue_Attention.md", "Vue注意事项"],
+            ["./front_learn/Vuepress_Learn.md", "Vuepress学习经验"],
+          ],
+        },
+        {
+          title: "前端项目",
+          children: [["./front_project/Snake.md", "贪吃蛇"]],
+        },
+      ],
       "/record/": [
         "",
         {
@@ -46,7 +62,6 @@ module.exports = {
           ],
         },
         ["Linux_Learn.md", "Linux命令学习"],
-        ["Vuepress_Learn.md.md", "vuepress学习"],
       ],
     },
     // sidebar: "auto",
