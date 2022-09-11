@@ -86,6 +86,101 @@ J = F^2  = B^3^2   = A^^3^2
 2. 撤销删除
 > 方法同[撤销修改](#撤销修改)
 
+### commit合并
+
+[文章来源](https://zhuanlan.zhihu.com/p/139321091)
+
+Git 合并多个提交的正确方式
+
+1. 应用场景
+对于一个项目，你可能会多次提交代码，每次提交都对应一commit sha，当完成项目，要进行分支合并的时候，只想保留一个或某几个 commit，这时候就需要合并 commit 了。
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase1.jpg)
+
+1. 如何合并
+这里介绍两种方式，第一种是git rebase，第二种是git rebase --autosquash，后者在git commit时是有条件的。
+
+1） git rebase
+第一步，开启交互模式
+
+```bash
+git rebase -i <commit_sha>
+```
+
+注意，这里的 `<commit_sha>` 是你针对此项目第一个提交的前一个提交的commit。
+
+举个例子：
+
+下面是工作中的提交记录：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase2.jpg)
+
+这时我们想要把前七个 `commit` 合并成一个，即：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase3.jpg)
+
+其中 `commit_sha` 是第一个提交的前一个提交的哈希。 因此，在我的示例中，命令为：
+```bash
+git rebase -i 6394dc
+```
+
+第二步，摘取合并
+
+这时候会弹出一个框，列出了你想要合并的所有 `commit` 。注意列出的顺序是从老到新的。
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase4.jpg)
+
+更改 `commit_sha` 最前面的单词，我们打算把这七个合并成一个 `commit`，那么更改如下：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase5.jpg)
+
+保存退出后，又弹出一个新的框，让我们更改 `commit` 信息，编辑完后退出就好了。最后完成的效果如下：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase6.png)
+
+1) git rebase --autosquash
+
+顾名思义，就是会自动帮你压缩 `commit`。但是你在 `git commit` 的时候需要使用特殊命令：
+```bash
+git commit --fixup=<commit_sha>
+```
+这里的 `commit_sha` 是指你对哪个 `commit` 进行了更改，所以必须先至少存在一个对该项目的提交。
+
+举个例子：
+
+下面是工作中的提交记录：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase7.png)
+
+我现在有有了一个新的改动，那么在提交时，就需要用如下命令表明我是对上一个 `commit` 进行了更改：
+```bash
+git commit --fixup=d94e78
+```
+产生的效果是这样的：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase8.png)
+
+这时候又有了一个新的改动，那么提交时的命令不变：
+```bash
+git commit --fixup=d94e78
+```
+产生的效果：
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase9.jpg)
+
+接下来我们进行合并操作：
+```bash
+git rebase --autosquash -i <commit_sha>
+```
+注意，这里的 `commit_sha` 是 older commit `6394dc`。
+
+Git这时会很机智的补全单词，不需要手动输入了。
+
+![alt](./../.vuepress/public/imgs/record/git_problem/commit_rebase10.png)
+
+直接保存退出，重新编辑提交信息即可。
+
+以上两种方式，一种是提交时轻松，合并时麻烦，另外一种相反。可以根据喜好来选择使用。
+
 ## Bug修改
 1. 创建新分支修复bug，此时正在开发的分支有工作没有提交，使用`git stash`将当前工作储存
 2. 在哪个分支上改Bug，就在哪个分支创建临时分支，完成后合并分支，删除临时分支
