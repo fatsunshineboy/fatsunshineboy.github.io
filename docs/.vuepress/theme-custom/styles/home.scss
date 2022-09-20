@@ -1,0 +1,21 @@
+
+
+.home{
+    width: 960px;
+    margin: auto;
+}
+
+.content_card{
+    margin-bottom: 30px;
+    width: 960px;
+    height: 90px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    .title{
+        font-size: 150px;
+        :hover{
+            cursor: pointer;
+        }
+    }
+    
+}

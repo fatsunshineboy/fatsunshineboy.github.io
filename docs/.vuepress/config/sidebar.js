@@ -15,6 +15,7 @@ module.exports = {
         ["./front_learn/TypeScript.md", "TypeScript学习经验"],
         ["./front_learn/Vue_Attention.md", "Vue注意事项"],
         ["./front_learn/Vuepress_Learn_exprice.md", "Vuepress学习经验"],
+        ["./front_learn/Nuxt.md", "Nuxt学习笔记"],
         ["./front_learn/DingTalk_Learn.md", "钉钉开发学习经验"],
       ],
     },

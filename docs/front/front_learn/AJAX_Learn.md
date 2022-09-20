@@ -1,3 +1,11 @@
+---
+title: Ajax学习笔记
+time: 2022-6-29 10:45
+author: sunshine
+tag: [前端,Ajax]
+---
+
+
 ## node.js
 
 1. 下载node.js（通过node -v可以查询是否安装成功）
