@@ -21,9 +21,14 @@ module.exports = {
     },
     {
       title: "前端项目",
-      children: [["./front_project/Snake.md", "贪吃蛇"]],
+      children: [
+        ["./front_project/Snake.md", "贪吃蛇"],
+        ["./front_project/upLoadImg.md", "图片上传"],
+      ],
     },
   ],
+  "/back/": [["Java.md", "Java"]],
+  "/algorithm/": [["leetcode.md", "力扣"]],
   "/record/": [
     "",
     {

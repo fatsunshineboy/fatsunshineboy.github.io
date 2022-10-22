@@ -17,7 +17,8 @@ module.exports = [
       },
     ],
   },
-  { text: "后端", link: "/back/" },
+  { text: "后端", link: "/back/java.md" },
+  { text: "算法", link: "/algorithm/leetcode.md"},
   { text: "杂记", link: "/record/" },
   // { text: '后端', link: '/blog/backend/' },
   // 对应/guide/guide.md

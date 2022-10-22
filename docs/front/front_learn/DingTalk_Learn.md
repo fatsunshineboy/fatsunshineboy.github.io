@@ -462,3 +462,9 @@ hello taobao
 
 [统一授权套件](https://open.dingtalk.com/document/isvapp-client/overview)
 
+### 开发流程
+
+准备工作：
+1. 入驻成为产品方案商，详情参见文档入驻成为产品方案商。
+2. 需要成为钉钉开发者，详情参见成为钉钉开发者
+
