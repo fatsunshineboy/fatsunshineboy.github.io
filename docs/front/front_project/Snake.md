@@ -15,7 +15,7 @@ time: 2022-9-11
 
 [视频参考](https://www.bilibili.com/video/BV1Xy4y1v7S2)
 
-[线上地址](https://fatsunshineboy.github.io/game/)
+[线上地址](https://fatsunshineboy.github.io/snake/)
 
 [github地址](https://github.com/fatsunshineboy/game/tree/snake)
 

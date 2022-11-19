@@ -24,10 +24,14 @@ module.exports = {
       children: [
         ["./front_project/Snake.md", "贪吃蛇"],
         ["./front_project/upLoadImg.md", "图片上传"],
+        ["./front_project/cloudMusic.md", "网易云音乐"],
       ],
     },
   ],
-  "/back/": [["Java.md", "Java"]],
+  "/back/": [
+    ["Java.md", "Java"],
+    ["DataBase.md", "数据库"],
+  ],
   "/algorithm/": [["leetcode.md", "力扣"]],
   "/record/": [
     "",
