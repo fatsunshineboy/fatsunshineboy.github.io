@@ -237,3 +237,136 @@
 
         每秒都去判断一下现在歌曲播放的时间，如果和临时数据 data-timeline 里的值一样，就滚动
     ```
+
+7. js 动态改变 audio 的 src
+    
+    :::tip
+        要改变 audio 的 src 值才有效果，改变 source 的 src 没有用，调用完后可以在调用 audio 的 load 函数
+    :::
+
+8. img实现图片加载前默认图片，加载时替换真实图片，加载失败时替换加载失败图片
+
+```css
+/* css 实现替代图片 */
+img {
+    margin: 25px 10px 25px 0;
+    width: 260px;
+    height: 164px;
+}
+img[src=""],img:not([src]){
+	width: 0;
+    height: 0;
+    padding: 82px 130px;
+    background: url('/static/img/sitg.jpg') no-repeat center;
+    background-size:100% 100% ;
+}
+```
+
+```html
+<!-- 加载失败 -->
+<img :src="personInfo.avatar" onerror="javascript:this.src='/static/img/fail.png';this.οnerrοr=null;">
+```
+
+9. 用户点击按钮，弹出框出现，弹出框里有确认&取消按钮，点击确认&取消&其他区域，弹出框消失
+    
+难点：弹出框出现后怎么判断鼠标的下一次点击，最开始的时候，我在弹出框出现后，开始监听鼠标垫点击事件，判断 e.target.classname 是否有弹出框的类名，这种方式十分麻烦，在网上搜寻半天，找到一个较好的方法：
+
+DOM2事件流规定的事件流包括三个阶段：
+1，事件捕获阶段。
+2，处于目标阶段。
+3，事件冒泡阶段。
+事件流首先是经过事件捕获阶段，接着是处于目标阶段，最后是事件冒泡阶段
+
+首先在事件捕获过程中，document对象首先接收到click事件，然后事件沿着DOM树依次向下，一直传播到事件的实际目标。
+接着在事件冒泡的过程中，事件开始是由具体的元素接收，然后逐级向上传播到较为不具体的节点。
+
+事件触发可以在捕获阶段，也可以在冒泡阶段，默认是冒泡阶段
+
+addEventListener 可以传第三个参数，决定事件的触发时间， 不传默认为 false （冒泡），true（捕获）
+
+新版第三个参数可以传对象，也可以直传 true 和 false 
+```js
+el.addEventListener(type, listener, {
+    capture: false, // === useCapture
+    once: false,    // 是否设置单次监听
+    passive: false  // 是否让 阻止默认行为(preventDefault()) 失效
+})
+// 新增参数的三个属性，默认值都是 false。
+```
+
+实现目标的要点是，除了设置一个变量控制弹出框的显示与隐藏，再设置一个变量 flag ，默认为 true ,document.body 在捕获和冒泡阶段都触发鼠标点击事件。先执行捕获事件，将 falg 设为 true ，即默认鼠标点击了其它地方，此时事件捕获到目标弹出框，再将 flag 设置为 false ,最后在body的冒泡阶段判断 flag 的值，只要点击在弹出框上面就不会隐藏
+
+```vue
+<template >
+    <div class="root">
+        <input @click="show()" />
+        <div class="calender" v-if="showCalender" @click="showDetail"></div>
+    </div>
+</template>
+
+<script setup lang="ts">
+
+import { ref } from 'vue';
+
+let showCalender = ref(false)
+
+let flag = ref(true)
+
+const show = () => {
+    showCalender.value = true;
+    flag.value = false;
+    console.log(789);
+}
+
+const showDetail = (e: any) => {
+    flag.value = false
+    console.log(123);
+}
+
+document.body.addEventListener('click', function () {
+    flag.value = true
+    console.log(456);
+}, true)
+
+document.body.addEventListener('click', function () {
+    console.log("aaa");
+
+    if (flag.value) {
+        showCalender.value = false
+    }
+})
+
+
+</script>
+
+<style lang="scss" scoped>
+.root {
+    .calender {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+}
+</style>
+```
+
+11. 在 vue 中使用 scss 的变量
+
+- 1. 新建一个以 `.module.scss`结尾的 scss 的文件 ，如 “ setting.module.scss ”
+- 2. 创建一个变量并且导出
+```scss
+$headerHeight:70px;
+
+// 导出,在vue中引用
+:export {
+  headerHeight: $headerHeight;
+}
+```
+- 3. 在 vue 文件中引入 scss 文件 
+```js
+import config from "setting.module.scss";
+```
+- 4. 使用变量
+```js
+console.log(config.headerHeight);
+```
