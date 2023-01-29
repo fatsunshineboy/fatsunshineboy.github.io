@@ -437,7 +437,7 @@ var compare = function (x, y) {//比较函数
     }
 }
 console.log(arr.sort(compare));  
-```      
+```
 
 结果为 [3, 4, 9, 23, 78] ，返回了我们想要的结果。如果要按降序排序，比较函数写成这样即可：
 
@@ -539,3 +539,25 @@ var compare = function (prop) {
 可以看到，确实是按正确的方式排序了。
 
 [文章来源](https://www.cnblogs.com/xljzlw/p/3694861.html)
+
+
+
+### 类和实例对象在成员和方法上的区别
+
+```js
+class Demo{
+    // 实例对象调用时顺着原型链往上查找
+    say(){
+        console.log(123)
+    }
+    // 方法直接挂载在实例对象上
+    say = () => {
+        console.log(123)
+    }
+    // 成员直接挂载在实例对象上
+    name = "sun"
+	// 成员挂载在类上
+	static sex = "male"
+}
+```
+
