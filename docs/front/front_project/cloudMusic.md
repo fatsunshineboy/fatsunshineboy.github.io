@@ -272,7 +272,7 @@ img[src=""],img:not([src]){
 
 难点：弹出框出现后怎么判断鼠标的下一次点击，最开始的时候，我在弹出框出现后，开始监听鼠标垫点击事件，判断 e.target.classname 是否有弹出框的类名，这种方式十分麻烦，在网上搜寻半天，找到一个较好的方法：
 
-DOM2事件流规定的事件流包括三个阶段：
+DOM事件流规定的事件流包括三个阶段：
 1，事件捕获阶段。
 2，处于目标阶段。
 3，事件冒泡阶段。
@@ -351,6 +351,8 @@ document.body.addEventListener('click', function () {
 </style>
 ```
 
+
+
 ### 在 vue 中使用 scss 的变量
 
 - 1. 新建一个以 `.module.scss`结尾的 scss 的文件 ，如 “ setting.module.scss ”
@@ -371,6 +373,8 @@ import config from "setting.module.scss";
 ```js
 console.log(config.headerHeight);
 ```
+
+
 
 ### 对象数组的深浅拷贝
 
@@ -431,7 +435,10 @@ console.log(array); //  [{number: 1}, { number: 2 }, { number: 3 }]
 console.log(copyArray); // [{number: 100}, { number: 2 }, { number: 3 }]
 ```
 
+
+
 ### 对象数组的去重（歌单为例）
+
 ```ts
 // 增加歌曲到播放列表
   const appendSongToPlayLsit = (

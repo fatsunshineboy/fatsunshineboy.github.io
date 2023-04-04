@@ -17,6 +17,7 @@ module.exports = {
         ["./front_learn/Vuepress_Learn_exprice.md", "Vuepress学习经验"],
         ["./front_learn/Nuxt.md", "Nuxt学习笔记"],
         ["./front_learn/DingTalk_Learn.md", "钉钉开发学习经验"],
+        ["./front_learn/React.md", "React学习笔记"],
       ],
     },
     {
@@ -30,7 +31,9 @@ module.exports = {
   ],
   "/back/": [
     ["Java.md", "Java"],
+    ["Java_Attention.md", "Java注意事项"],
     ["DataBase.md", "数据库"],
+    ["IDEA.md", "IDEA"]
   ],
   "/algorithm/": [["leetcode.md", "力扣"]],
   "/record/": [

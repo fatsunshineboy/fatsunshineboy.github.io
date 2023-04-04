@@ -6,7 +6,34 @@ tag: 数据库
 
 ## SQL
 
+### 表的关联关系
+
+1. 一对一关联
+2. 一对多关联
+3. 多对多关联
+4. 自我引用
+
+
+
+### SQL分类
+
+1. DDL（Data Definition Languages、数据定义语言），这些语句定义了不同的数据库、表、视图、索引等数据库对象，还可以用来创建、删除、修改数据库和数据表的结构。
+   	主要的语句关键字包括CREATE、DROP、ALTER、RENAME、TRUNCATE等。
+
+   
+
+2. DML（Data Manipulation Language、数据操作语言），用于添加、删除、更新和查询数据库记录，并检查数据完整性。
+
+   ​	主要的语句关键字包括INSERT、DELETE、UPDATE、SELECT等。
+   
+3. DCL（Data Control Language、数据控制语言），用于定义数据库、表、字段、用户的访问权限和安全级别。
+
+   ​	主要的语句关键字包括GRANT、REVOKE、COMMIT、ROLLBACK、SAVEPOINT等。
+
+
+
 ### select
+
 ```sql
 -- 选择
 select ... from ...
@@ -47,6 +74,78 @@ distinct
    from -> where -> group by -> having -> select -> order by -> limit
 6. 分组函数只有在分组后，才能使用，如：min,max,avg,count
 7. `where`和`having`，优先选择`having`
+8. 列的别名只能在 ORDER BY 中使用，不能在 WHERE 中使用
+9. DUAL表示虚拟表
+
+
+
+### 算术运算符
+
+1. 算数运算符（+、-、*、/、div、%、mod）
+
+```
+100 + '1'	// 101	会将数值隐式转化
+100 + 'a'	// 100	字符串无法隐式转化看作 0
+100 + null	// null 和任何数做运算都为null
+100 div 0	// null 除数为0,结果为null
+```
+
+2. 比较运算符
+
+```
+=			等于运算符
+<==>		安全等级运算符
+			安全等于运算符（<=>）与等于运算符（=）的作用是相似的
+			唯一的区别是‘<=>'可以用来对NULL进行判断
+			在两个操作数均为NULL时，其返回值为1，而不为NULL；
+			当一个操作数为NULL时，其返回值为0，而不为NULL。
+		
+<>			 不等于
+!=			 不等于
+
+IS NULL					为空运算符
+IS NOT NULL				不为空运算符
+LEAST					最小值运算符
+GREATEST				最大值运算符
+BETWEEN	... AND ...		 两值之间的运算符
+ISNULL					为空运算符,函数
+IN						属于运算符
+NOT IN					不属于运算符
+LIKE					模糊匹配运算符
+						%			表示不确定个数的字符
+						_			表示一个不确定的字符
+						\			表示转义字符
+						
+REGEXP					正则表达式运算符
+RLIKE					正则表达式运算符
+```
+
+注意：escape '$' 表示可以将$作为转义字符
+
+4. 逻辑运算符
+
+```
+NOT	或 ！		逻辑非
+AND或&&		 逻辑与
+OR或||		 逻辑或
+XOR		      逻辑异或
+```
+
+AND的优先级高于OR
+
+
+
+### 排序
+
+默认是升序
+
+升序：ASC(ascend)
+
+降序：DESC(descend)
+
+二级排序，直接在逗号后面加排序条件
+
+
 
 ### 多表查询
 - 表连接的方式
@@ -55,14 +154,18 @@ distinct
       - 等值连接
       - 非等值连接
       - 自连接
-
-  - 外连接
+- 外连接
       - 左外连接（左连接，左边的是主表）
       - 右外连接（右连接，右边的是主表） 
-
   - 全连接
 
+![SQL的连接方式](./../.vuepress/public/imgs/back/database/sql_join.png)
+
 ```sql
+内连接：合并具有同一列的两个以上的表的行，结果集中不包含一个表与另一个表不匹配的行
+外连接：两个表在连接过程中除了返回满足连接条件的行以外还返回左（或右）表中不满足条件的行，这种连接称为左（或右）外连接。没有匹配的行时，结果表中相应的列为空（NULL）。
+
+
 -- 内连接的等值连接
 join 表名 on 条件
 
@@ -89,11 +192,62 @@ on
 -- 连接两个表 
 union
 
+-- 自然连接
+-- NATURALJOIN：它会帮你自动查询两张连接表中所有相同的字段，然后进行等值连接。
+SELECT employee_id，last_name，department_name 
+FROM employees e NATURAL JOIN departments d；
+
+--USING
+SELECT employee_id，last_name，department_name 
+FROM employees e 
+JOIN departments d 
+USING（department_id）；
+-- 你能看出与自然连接NATURALJOIN不同的是，USING指定了具体的相同的字段名称，你需要在USING的括号（）中填入要指定的同名字段。同时使用JOIN...USING可以简化JOIN ON的等值连接。它与下面的SQL 查询结果是相同的：
+SELECT employee_id，last_name，department_name 
+FROM employees e，departments d 
+WHERE e.department_id=d.department_id；
 ```
 
- #### 注意事项
- 1. 多表选举的时候，指明字段在那个表中可以增加效率，在`from`中给表起别名
+注意事项
+
+ 1. 多表选举的时候，指明字段在那个表中可以增加效率，在`from`中给表起别名。如果给表起了别名，一旦在SELECT或WHERE中使用表名的话，则必须使用表的别名，而不能再使用表的原名。
  2. 外连接的查询结果条数一定大于内连接的结果条数
+
+
+
+### Union
+
+合并查询结果
+利用UNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用UNION或UNION ALL关键字分隔。
+
+UNION 操作符:返回两个查询的结果集的并集，去除重复记录。
+
+UNION ALL 操作符:返回两个查询的结果集的并集。对于两个结果集的重复部分，不去重。
+
+```
+注意：
+执行UNIONALL语句时所需要的资源比UNION语句少。如果明确知道合并数据后的结果数据不存在重复数据，或者不需要去除重复的数据，则尽量使用UNION ALL语句，以提高数据查询的效率。
+```
+
+
+
+
+
+### 函数
+
+#### 单行函数
+
+单行函数
+·操作数据对象
+·接受参数返回一个结果
+·只对一行进行变换,每行返回一个结果
+.可以嵌套
+·参数可以是一列或一个值
+
+
+
+
+
 
 
 ### 建表
