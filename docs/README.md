@@ -1,12 +1,12 @@
 ---
 layout: HomeLayout
-# editLinks: false
-# home: true
+editLinks: false
+home: true
 # heroImage: /sun.png
 ---
 
 <!-- <template>
-    123456
+    <div>122313</div>
 </template>
   
 <script setup>
@@ -16,7 +16,7 @@ onMounted(() => {
     // console.log(123)
 }),
 setTimeout(() => {
-    // console.log(123);
+    console.log(123);
 }, 1000);
 </script>
 

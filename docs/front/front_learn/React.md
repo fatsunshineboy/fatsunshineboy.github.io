@@ -61,7 +61,7 @@ create-react-app hello
 
 props是只读的
 
-```react
+```jsx
 class Preson extends React.Component{
     render(){
         return (
@@ -87,7 +87,7 @@ ReactDOM.render(<Person name="Tom" />,document.getElementById("test"))
 
 简写方式
 
-```react
+```jsx
 class Preson extends React.Component{
     static propTypes = {
         name:PropsTypes.string.isRequired,
@@ -187,14 +187,14 @@ react生命周期函数(旧)
 
 ![react生命周期函数(旧)](../../.vuepress/public/imgs/front/front_learn/react/react_live.png)
 
-```react
+```jsx
 // 卸载组件
 ReactDOM.unMountComponentAtNode(节点)
 ```
 
 shouldComponentUpdate 返回值为false时不会重新渲染更新，为true时重新渲染，默认为true
 
-```react
+```jsx
 shouldComponentUpdate(nextProps，nextState){
 	console.log(this.props，this.state)；//目前的props 和state 
     console.1og(nextProps，nextState)；//接下要变化的目标props，目标state 					         if(this.state.carName === nextState.carName) return false 
@@ -237,7 +237,7 @@ react生命周期函数(新)
 
 1. react-router-dom
 
-```react
+```jsx
 // 管理路由器，有两种，BrowserRouter和HashRouter,类似于vue的createWebHistory()和createWebHashHistory()
 <BrowserRouter>
     // 编写路由链接,类似与vue的router-link
@@ -247,7 +247,7 @@ react生命周期函数(新)
 </BrowserRouter>
 ```
 
-```react
+```jsx
 // 导航路由 ,切换路由时会自动添加类名
 <NavLink activeClassName="active" to="/home">Home</NavLink>
 <NavLink activeClassName= "active" to="/about">About</NavLink>
@@ -259,7 +259,7 @@ react生命周期函数(新)
 
 写在标签的`children`的值也会被放入标签体之间
 
-```react
+```jsx
 <NavLink activeClassName="active" to="/home">Home</NavLink>
 // 等价于
 <NavLink activeClassName="active" to="/home" children="Home"/>
@@ -269,7 +269,7 @@ react生命周期函数(新)
 
 react的路由匹配时，会一直往下匹配，当路径指向多个路由时，会展示多个路由，要想只匹配一次就结束，可以包括switch标签
 
-```react
+```jsx
 <Switch>
     <NavLink activeClassName="active" to="/home">Home</NavLink>
 </Switch>
@@ -283,14 +283,14 @@ react的路由匹配时，会一直往下匹配，当路径指向多个路由时
 
 精准匹配：`link`标签的`to`属性只要`route`的完全相同
 
-```react
+```jsx
 <Route exact={true} path="/home" component={Home}></Route>
 <Route exact path="/home" component={Home}></Route>
 ```
 
 5. 重定向
 
-```react
+```jsx
 <Route path="/home" component={Home}></Route>
 // 兜底匹配，没有匹配时听从redirect 
 <redirect to="/home"></redirect>
@@ -304,7 +304,7 @@ react的路由匹配时，会一直往下匹配，当路径指向多个路由时
 
 7. 路由组件传参
 
-```react
+```jsx
 // params 传参，子组件可以从this.props.match.params拿到数据
 <Link to="/home/001">Home</Link>
 <Route path="/home/:id" component={Home}></Route>
@@ -318,13 +318,13 @@ react的路由匹配时，会一直往下匹配，当路径指向多个路由时
 
 8. replace模式(替换栈顶的history)
 
-```react
+```jsx
 <Link replace={true} to="/home">Home</Link>
 ```
 
 9. 编程式路由导航
 
-```react
+```jsx
 this.props.history.push("/home")
 this.props.history.replace("/home")
 // 如果传第二个参数，将最为state的值
@@ -337,7 +337,7 @@ this.props.history.goForward()
 
 10. 普通组件获取路由组件的特有api
 
-```react
+```jsx
 withRouter(普通组件)
 ```
 
@@ -401,7 +401,7 @@ module. exports=function override(config, env){
 >
 > 当有多个reducer时，调用combineReducers
 >
-> ```react
+> ```jsx
 > import {createStore,apopluMiddleWare,combineReducers} from'redux'
 > // 引入redux-thunk,用于异步支持action
 > import thunk from "redux-thunk"
@@ -427,14 +427,14 @@ module. exports=function override(config, env){
 >
 > 2. store中进行配置
 >
->    ```react
+>    ```jsx
 >    import {composewithDeVTools} from'redux-devtools-extension'
 >    const store = createStore(allReducer，composewithDevTools(applyMiddleware(thunk)))
 >    ```
 >
 >    
 
-```react
+```jsx
 // store.js
 import {createStore,apopluMiddleWare} from'redux'
 // 引入redux-thunk,用于异步支持action
@@ -535,7 +535,7 @@ store.subscribe(()=>{
 > > (1).定义好UI组件---不暴露
 > > (2).引入connect生成一个容器组件，并暴露，写法如下：
 > >
-> > ```react
+> > ```jsx
 > > connect(
 > >     state =>({key:value})
 > >     {key:xxxxxAction}
@@ -544,7 +544,7 @@ store.subscribe(()=>{
 > >
 > > (4).在UI组件中通过`this.props.xxxxxxx`读取和操作状态
 
-```react
+```jsx
 - src
 	- container
 		- Count
@@ -674,7 +674,7 @@ const Login = lazy(()=>import('@/pages/Login'))
 
 使用
 
-```react
+```jsx
 <Fragment></Fragment>
 <></>
 ```
