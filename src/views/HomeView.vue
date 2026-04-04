@@ -20,7 +20,7 @@
       <!-- 标题容器 -->
       <div class="title-container">
         <h1 class="brand-title">{{ config.site.title }}</h1>
-        <p class="brand-subtitle">{{ config.site.subtitle }}</p>
+        <p class="brand-subtitle">{{ lang === 'zh' ? config.site.subtitle.zh : config.site.subtitle.en }}</p>
         <div class="strand-line"></div>
       </div>
     </section>
