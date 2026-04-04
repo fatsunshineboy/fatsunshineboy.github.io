@@ -1,0 +1,28 @@
+{
+  "tools": [
+    {
+      "id": "color-picker",
+      "name": { "zh": "全屏取色器", "en": "Color Picker" },
+      "desc": { "zh": "从屏幕任意位置吸取颜色", "en": "Pick colors from anywhere on your screen" },
+      "icon": "pipette",
+      "path": "/tools/color-picker.html",
+      "category": "design",
+      "enabled": true
+    },
+    {
+      "id": "color-scheme",
+      "name": { "zh": "配色方案", "en": "Color Scheme" },
+      "desc": { "zh": "生成和谐的配色方案", "en": "Generate harmonious color palettes" },
+      "icon": "palette",
+      "path": "/tools/color-scheme.html",
+      "category": "design",
+      "enabled": true
+    }
+  ],
+  "categories": [
+    { "id": "design", "name": { "zh": "设计", "en": "Design" } },
+    { "id": "document", "name": { "zh": "文档", "en": "Document" } },
+    { "id": "code", "name": { "zh": "代码", "en": "Code" } },
+    { "id": "text", "name": { "zh": "文本", "en": "Text" } }
+  ]
+}

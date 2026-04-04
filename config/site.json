@@ -1,0 +1,46 @@
+{
+  "site": {
+    "title": "fatsunshineboy",
+    "subtitle": "连接 · 创造 · 前行",
+    "description": "AI 工具集合与个人博客 - Death Stranding Theme",
+    "author": "fatsunshineboy",
+    "language": "zh-CN"
+  },
+  "theme": {
+    "default": "dark",
+    "enableLight": false,
+    "moonImage": "/images/moon-hd.jpg",
+    "backgroundImage": "/images/bg-stars.jpg"
+  },
+  "navigation": [
+    { "id": "home", "label": { "zh": "首页", "en": "Home" }, "path": "/", "icon": "home", "enabled": true },
+    { "id": "blog", "label": { "zh": "博客", "en": "Blog" }, "path": "/blog", "icon": "document", "enabled": true },
+    { "id": "gallery", "label": { "zh": "图片墙", "en": "Gallery" }, "path": "/gallery", "icon": "images", "enabled": true },
+    { "id": "tools", "label": { "zh": "工具", "en": "Tools" }, "path": "/tools", "icon": "tools", "enabled": true },
+    { "id": "about", "label": { "zh": "关于", "en": "About" }, "path": "/about", "icon": "user", "enabled": true }
+  ],
+  "features": {
+    "likeButton": {
+      "enabled": true,
+      "position": "bottom-right",
+      "storageKey": "ds_likes"
+    },
+    "timefall": {
+      "enabled": false,
+      "particleCount": 80
+    },
+    "chiralNetwork": {
+      "enabled": true,
+      "nodeCount": 9
+    },
+    "bbDetector": {
+      "enabled": false,
+      "position": "bottom-left"
+    }
+  },
+  "social": {
+    "github": "",
+    "twitter": "",
+    "email": ""
+  }
+}

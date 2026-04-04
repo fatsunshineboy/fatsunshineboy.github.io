@@ -1,0 +1,125 @@
+---
+title: 贪吃蛇游戏开发
+titleEn: Snake Game Development
+desc: 使用 Canvas 实现的经典贪吃蛇游戏
+descEn: Classic snake game implemented with Canvas
+date: 2025-01-08
+tags: [项目，JavaScript，游戏，Canvas]
+cover: /images/gallery/20260328211235_1.jpg
+readingTime: 10
+---
+
+# 贪吃蛇游戏开发
+
+使用原生 JavaScript 和 Canvas 实现的经典贪吃蛇游戏。
+
+## 游戏设计
+
+- 使用 Canvas 进行绘制
+- 蛇身用数组存储坐标
+- 键盘控制移动方向
+- 碰撞检测判断游戏结束
+
+## 核心代码
+
+### 初始化
+
+```javascript
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const gridSize = 20;
+const tileCount = canvas.width / gridSize;
+
+let snake = [{ x: 10, y: 10 }];
+let food = { x: 15, y: 15 };
+let dx = 0;
+let dy = 0;
+let score = 0;
+```
+
+### 游戏循环
+
+```javascript
+function gameLoop() {
+  update();
+  draw();
+  setTimeout(gameLoop, 100);
+}
+
+function update() {
+  const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+  snake.unshift(head);
+  
+  // 检测吃食物
+  if (head.x === food.x && head.y === food.y) {
+    score += 10;
+    spawnFood();
+  } else {
+    snake.pop();
+  }
+  
+  // 检测碰撞
+  checkCollision();
+}
+
+function draw() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.fillStyle = '#0f0';
+  snake.forEach(seg => 
+    ctx.fillRect(seg.x * gridSize, seg.y * gridSize, gridSize - 2, gridSize - 2)
+  );
+  
+  ctx.fillStyle = '#f00';
+  ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+}
+```
+
+### 键盘控制
+
+```javascript
+document.addEventListener('keydown', (e) => {
+  switch(e.key) {
+    case 'ArrowUp': 
+      if (dy !== 1) { dx = 0; dy = -1; } 
+      break;
+    case 'ArrowDown': 
+      if (dy !== -1) { dx = 0; dy = 1; } 
+      break;
+    case 'ArrowLeft': 
+      if (dx !== 1) { dx = -1; dy = 0; } 
+      break;
+    case 'ArrowRight': 
+      if (dx !== -1) { dx = 1; dy = 0; } 
+      break;
+  }
+});
+```
+
+### 碰撞检测
+
+```javascript
+function checkCollision() {
+  const head = snake[0];
+  
+  // 撞墙
+  if (head.x < 0 || head.x >= tileCount || 
+      head.y < 0 || head.y >= tileCount) {
+    gameOver();
+    return;
+  }
+  
+  // 撞自己
+  for (let i = 1; i < snake.length; i++) {
+    if (head.x === snake[i].x && head.y === snake[i].y) {
+      gameOver();
+      return;
+    }
+  }
+}
+```
+
+## 总结
+
+通过这个项目，我深入理解了 Canvas 绘图和游戏开发的基本原理。

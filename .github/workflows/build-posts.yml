@@ -1,0 +1,42 @@
+name: Build Posts Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/blog/*.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build posts index
+        run: npm run build:posts
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --exit-code public/data/posts.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/posts.json
+          git commit -m "chore: update posts index [skip ci]"
+          git push

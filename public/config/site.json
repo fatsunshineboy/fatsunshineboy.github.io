@@ -1,0 +1,78 @@
+{
+  "site": {
+    "title": "fatsunshineboy",
+    "subtitle": {
+      "zh": "连接 · 创造 · 前行",
+      "en": "Connect · Create · Advance"
+    }
+  },
+  "theme": {
+    "moonImage": "/images/moon-hd.jpg"
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "label": {
+        "zh": "首页",
+        "en": "Home"
+      },
+      "icon": "home",
+      "path": "/",
+      "enabled": true
+    },
+    {
+      "id": "blog",
+      "label": {
+        "zh": "博客",
+        "en": "Blog"
+      },
+      "icon": "document",
+      "path": "/blog",
+      "enabled": true
+    },
+    {
+      "id": "gallery",
+      "label": {
+        "zh": "图片墙",
+        "en": "Gallery"
+      },
+      "icon": "images",
+      "path": "/gallery",
+      "enabled": true
+    },
+    {
+      "id": "tools",
+      "label": {
+        "zh": "工具",
+        "en": "Tools"
+      },
+      "icon": "tools",
+      "path": "/tools",
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": {
+        "zh": "关于",
+        "en": "About"
+      },
+      "icon": "user",
+      "path": "/about",
+      "enabled": true
+    }
+  ],
+  "features": {
+    "likeButton": true,
+    "timefall": {
+      "enabled": false,
+      "particleCount": 60,
+      "opacity": 0.15
+    },
+    "chiralNetwork": {
+      "enabled": true
+    },
+    "bbDetector": {
+      "enabled": false
+    }
+  }
+}
