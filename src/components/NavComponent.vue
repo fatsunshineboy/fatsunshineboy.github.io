@@ -8,14 +8,14 @@
 
     <transition name="menu-slide">
       <div v-if="isOpen" class="nav-menu" :class="{ open: isOpen }">
-        <a v-for="item in navItems" :key="item.id"
-           :href="item.path"
+        <router-link v-for="item in navItems" :key="item.id"
+           :to="item.path"
            class="nav-menu-item"
            :class="{ active: $route.path === item.path }"
            @click="handleNavClick">
-          <svg class="nav-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" v-html="getIcon(item.icon)" />
+          <svg class="nav-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" :innerHTML="getIcon(item.icon)" />
           <span class="nav-menu-label">{{ lang === 'zh' ? item.label.zh : item.label.en }}</span>
-        </a>
+        </router-link>
 
         <div class="lang-switch">
           <button :class="{ active: lang === 'zh' }" @click="lang = 'zh'">中文</button>

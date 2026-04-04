@@ -83,6 +83,12 @@ onMounted(() => {
   z-index: 1;
 }
 
+/* 标题容器 - 确保在背景图之上 */
+.title-container {
+  position: relative;
+  z-index: 3;
+}
+
 .brand-title {
   position: relative;
   font-size: clamp(2.5rem, 8vw, 5rem);
