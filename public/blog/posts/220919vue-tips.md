@@ -3,7 +3,7 @@ title: Vue 开发注意事项
 titleEn: Vue Development Tips
 desc: Vue 项目开发中的常见问题和最佳实践
 descEn: Common issues and best practices in Vue project development
-date: 2025-02-01
+date: 2022-09-19
 tags: [前端，Vue，框架]
 cover: /images/gallery/20260328162904_1.jpg
 readingTime: 6

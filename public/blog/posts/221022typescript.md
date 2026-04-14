@@ -3,7 +3,7 @@ title: TypeScript 学习笔记
 titleEn: TypeScript Study Notes
 desc: TypeScript 类型系统学习笔记
 descEn: TypeScript type system learning notes
-date: 2025-01-20
+date: 2022-10-22
 tags: [前端，TypeScript]
 cover: /images/gallery/20260328173836_1.jpg
 readingTime: 10

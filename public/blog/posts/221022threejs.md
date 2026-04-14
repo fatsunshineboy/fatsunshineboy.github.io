@@ -3,7 +3,7 @@ title: Three.js 学习笔记
 titleEn: Three.js Study Notes
 desc: Three.js 学习笔记与基础概念
 descEn: Three.js learning notes and basic concepts
-date: 2025-02-05
+date: 2022-10-22
 tags: [前端，Three.js，3D，WebGL]
 cover: /images/gallery/20260328210911_1.jpg
 readingTime: 12

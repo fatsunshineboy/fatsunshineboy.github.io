@@ -3,7 +3,7 @@ title: React 学习笔记
 titleEn: React Study Notes
 desc: 从 Vue 转向 React 的学习笔记
 descEn: Learning notes transitioning from Vue to React
-date: 2025-01-25
+date: 2023-04-04
 tags: [前端，React，框架]
 cover: /images/gallery/20260328164219_1.jpg
 readingTime: 8

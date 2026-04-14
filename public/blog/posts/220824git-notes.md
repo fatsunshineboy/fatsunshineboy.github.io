@@ -3,7 +3,7 @@ title: Git 学习笔记
 titleEn: Git Study Notes
 desc: Git 版本控制学习笔记
 descEn: Git version control learning notes
-date: 2025-01-05
+date: 2022-08-24
 tags: [工具，Git]
 cover: /images/gallery/20260328211225_1.jpg
 readingTime: 8

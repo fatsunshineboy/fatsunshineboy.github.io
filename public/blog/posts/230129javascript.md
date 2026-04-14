@@ -3,7 +3,7 @@ title: JavaScript 学习笔记
 titleEn: JavaScript Study Notes
 desc: JavaScript 核心概念学习笔记
 descEn: JavaScript core concepts learning notes
-date: 2025-01-15
+date: 2023-01-29
 tags: [前端，JavaScript]
 cover: /images/gallery/20260328202313_1.jpg
 readingTime: 15

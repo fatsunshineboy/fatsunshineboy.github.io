@@ -3,7 +3,7 @@ title: 云音乐项目开发
 titleEn: Cloud Music Project Development
 desc: 一个仿网易云音乐的全栈项目
 descEn: A full-stack project imitating NetEase Cloud Music
-date: 2025-02-10
+date: 2022-11-19
 tags: [项目，Vue，Node.js]
 cover: /images/gallery/20260328162922_1.jpg
 readingTime: 10
