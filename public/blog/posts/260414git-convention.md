@@ -1,3 +1,15 @@
+---
+title: Git 提交规范指南
+titleEn: Git Commit Message Convention Guide
+desc: 详细介绍Git提交信息的标准格式、类型分类、作用范围及Conventional Commits规范，附带Commitizen等工具推荐
+descEn: Comprehensive guide to Git commit message format, types, scopes, and Conventional Commits specification with tool recommendations like Commitizen
+date: 2026-04-14
+tags: [Git, 提交规范, Conventional Commits, 团队协作]
+cover: /images/gallery/20260328212534_1.jpg
+readingTime: 8
+
+---
+
 # Git 提交规范（Commit Message Convention）指南
 
 ## 一、为什么需要提交规范？
