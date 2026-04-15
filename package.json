@@ -7,17 +7,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "build:posts": "node scripts/generate-posts.js"
+    "preview": "npm run build && wrangler dev",
+    "build:posts": "node scripts/generate-posts.js",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
-    "vue": "^3.4.0",
-    "vue-router": "^4.3.0",
+    "highlight.js": "^11.9.0",
     "marked": "^12.0.0",
-    "highlight.js": "^11.9.0"
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.32.2",
     "@vitejs/plugin-vue": "^6.0.6",
-    "vite": "^8.0.8"
+    "vite": "^8.0.8",
+    "wrangler": "^4.82.2"
   }
 }
